@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+#clockdiv {
+  text-align: center;
+  font-size: 30px;
+}
+
+#clockdiv > div {
+  padding: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 48px;
+}
+
+#clockdiv > div + div:before {
+  content: ':';
+  font-size: 20px;
+}
+
+#clockdiv div > span {
+  padding: 15px;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 26px;
+  line-height: 1.7;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+.l-container {
+  margin: 0 auto;
+  position: relative;
+}
+
+.l-container__countdown {
+  position: relative;
+}
+
+@media screen and (min-width: 900px) {
+  .l-container {
+    width: 900px;
+  }
+}
+
+.content {
+  padding-bottom: 55px;
+  border-bottom: 1px solid #518eaa;
+  margin-bottom: 110px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  background: #000;
+  color: #518eaa;
+  text-align: center;
+  font-family: "Orbitron", "BureauAgencyBold", Helvetica, Arial;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 36px;
+  line-height: 1.25;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+a {
+  color: #518eaa;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px){
+  .l-contacts h3{
+  margin-top: 0;
+}
+}
+.c-contacts__contact {
+  width: 24px;
+  height: 24px;
+  display: block;
+  float: right;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+.c-contacts__text {
+  display: none;
+}
+
+.c-credits__icons,
+.c-credits__icons a {
+  color: #010101;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .l-contacts {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    top: 0;
+  }
+}
+
+.c-contacts h3 {
+  border-bottom: 1px solid #518eaa;
+  padding-bottom: 15px;
+}
+@media screen and (min-width: 768px){
+  .c-contacts h3 {
+    padding-left: 15px;}
+}
+@media screen and (max-width: 767px){
+  
+.c-contacts__links {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}  
+  .c-contacts__links a+a{
+    margin-left: 10px;
+  }
+}
