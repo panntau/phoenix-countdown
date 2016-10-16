@@ -5,6 +5,23 @@
   <meta charset="UTF-8">
   <title>Phoenix Strategic Investor</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="manifest" href="/assets/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
@@ -16,7 +33,10 @@
     <section class="content">
       <div class="l-logo">
         <div class="c-logo">
-          <img src="assets/phoenix.jpg" alt="Phoenix Stratigic Investors" />
+          <video autoplay>
+           <source type="video/mp4" src="assets/LOGO_Animation_Phoenix-HD.mp4">
+            <img src="assets/phoenix.jpg" alt="Phoenix Stratigic Investors" />
+          </video>
         </div>
       </div>
 
@@ -24,7 +44,7 @@
         <div class="l-text">
           <div class="c-text">
             <h2>www.phoenix-investor.com</h2>
-<p class="upperCase">Coming soon:</p>
+            <p class="upperCase">Coming soon:</p>
           </div>
         </div>
         <div id="clockdiv" class="l-countdown">
@@ -88,46 +108,55 @@
 
   <script>
     function getTimeRemaining(endtime) {
-      var t = Date.parse(endtime) - Date.parse(new Date());
-      var seconds = Math.floor((t / 1000) % 60);
-      var minutes = Math.floor((t / 1000 / 60) % 60);
-      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      var days = Math.floor(t / (1000 * 60 * 60 * 24));
-      return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-      };
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var now = new Date(Date.parse(new Date()));
+                       if(now>endtime){
+      daysSpan.innerHTML='0';
+       hoursSpan.innerHTML = '00';
+    minutesSpan.innerHTML = '00';
+    secondsSpan.innerHTML = '00';
     }
+    else{
+    var t = getTimeRemaining(endtime);
 
-    function initializeClock(id, endtime) {
-      var clock = document.getElementById(id);
-      var daysSpan = clock.querySelector('.days');
-      var hoursSpan = clock.querySelector('.hours');
-      var minutesSpan = clock.querySelector('.minutes');
-      var secondsSpan = clock.querySelector('.seconds');
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-      function updateClock() {
-        var t = getTimeRemaining(endtime);
-
-        daysSpan.innerHTML = t.days;
-        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-        if (t.total <= 0) {
-          clearInterval(timeinterval);
-        }
-      }
-
-      updateClock();
-      var timeinterval = setInterval(updateClock, 1000);
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
     }
+    }
+  }
 
-    var deadline = new Date(2016, 9, 22, 16, 0, 0);
-    initializeClock('clockdiv', deadline);
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline =  new Date(2016, 9, 14, 16, 0, 0);
+initializeClock('clockdiv', deadline);
   </script>
 </body>
 
